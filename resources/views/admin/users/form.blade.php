@@ -35,6 +35,16 @@
                     @else
                         <h4 class="card-title mb-4">Add New User</h4>
                     @endif
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     <form class="outer-repeater"
                           @if( isset($user) )
                           action="{{ route('admin.users.update',$user->id) }}"
