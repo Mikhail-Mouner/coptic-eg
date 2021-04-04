@@ -23,6 +23,12 @@
     @yield('style')
 </head>
 <body>
+@if(0)
+
+    <div class="home-btn d-none d-sm-block">
+        <a href="{{ route('home') }}" class="text-dark"><i class="fas fa-home h2"></i></a>
+    </div>
+@endif
 @yield('content')
 
 

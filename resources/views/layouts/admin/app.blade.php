@@ -21,6 +21,12 @@
     <!-- Styles -->
     @include('layouts.admin.includes.header-script')
     @yield('style')
+    <style>
+        body[data-layout=detached] #layout-wrapper::before {
+            background: -webkit-gradient(linear,left top,right top,from(#08546C),to(#022534));
+            background: linear-gradient(to right,#A0BACC,#08546C,#022534);
+        }
+    </style>
 </head>
 <body data-layout="detached" data-topbar="colored">
 

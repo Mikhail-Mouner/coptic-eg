@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function index()
     {
         $courses = Course::withoutTrashed()->latest()->with('category')->get();
-        return view('home')->with('courses',$courses);
+        return view('courses.index')->with('courses',$courses);
     }
 
     /**
@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $search = \request('s');
         $courses = Course::withoutTrashed()->where('title','like',"%$search%")->orwhere('brief','like',"%$search%")->latest()->with('category')->get();
-        return view('home')->with('courses',$courses);
+        return view('courses.index')->with('courses',$courses);
     }
 
     /**
@@ -47,6 +47,6 @@ class HomeController extends Controller
             $query->where('id', $id);
         })->with('category')->get();
 
-        return view('home')->with('courses',$courses);
+        return view('courses.index')->with('courses',$courses);
     }
 }

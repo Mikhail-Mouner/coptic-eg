@@ -3,10 +3,6 @@
 
 @section('content')
 
-    <div class="home-btn d-none d-sm-block">
-        <a href="{{ route('home') }}" class="text-dark"><i class="fas fa-home h2"></i></a>
-    </div>
-
     <div class="account-pages my-5 pt-sm-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -16,7 +12,7 @@
                             <div class="bg-login-overlay"></div>
                             <div class="position-relative">
                                 <h5 class="text-white font-size-20">Welcome Back !</h5>
-                                <p class="text-white-50 mb-0">Sign in to continue to Qovex.</p>
+                                <p class="text-white-50 mb-0">Sign in to continue to {{ env('APP_NAME') }}.</p>
                                 <a href="{{ route('home') }}" class="logo logo-admin mt-4">
                                     <img src="{{ asset('back-end/images/logo-sm-dark.png') }}" alt="" height="30">
                                 </a>
@@ -24,7 +20,7 @@
                         </div>
                         <div class="card-body pt-5">
                             <div class="p-2">
-                                <form class="form-horizontal" action="{{ route('login') }}" autocomplete="off">
+                                <form class="form-horizontal" method="post" action="{{ route('login') }}" autocomplete="off">
                                     @csrf
                                     <div class="form-group">
                                         <label for="username">Username</label>
@@ -59,7 +55,7 @@
                                         <a href="{{ route('login.provider','google') }}" class="btn btn-outline-danger btn-block waves-effect waves-light"><i class="fab fa-google-plus mr-1"></i> Sign-in by gmail</a>
                                     </div>
 
-                                    @if (Route::has('password.request'))
+                                    @if (0 && Route::has('password.request'))
                                         <div class="mt-4 text-center">
                                             <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock mr-1"></i> {{ __('Forgot Your Password?') }}</a>
                                         </div>
@@ -71,7 +67,6 @@
                     </div>
                     <div class="mt-5 text-center">
                         <p>Don't have an account ? <a href="{{ route('register') }}" class="font-weight-medium text-primary"> Signup now </a> </p>
-                        <p>© 2020 Qovex. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
                     </div>
 
                 </div>

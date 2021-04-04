@@ -1,6 +1,6 @@
 @extends('layouts.user.app')
 
-@section('page-title','HomePage')
+@section('page-title',env('APP_NAME'))
 
 @section('style')
     <style>
@@ -10,10 +10,16 @@
             border-top-left-radius: calc(.25rem - 0);
             border-top-right-radius: calc(.25rem - 0);
         }
+        .card-first-row {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 13em;
+        }
     </style>
 @endsection
 
-@section('title','HomePage')
+@section('title','Home Page')
 
 @section('sub-title','')
 
@@ -31,22 +37,20 @@
                     @break($loop->index == 3)
 
                     <div class="card mb-4">
+                        <a href="{{ route('course.details',$item->slug) }}">
 
-                        <a class="image-popup-no-margins" href="{{ $item->getPhoto() }}">
-                            <img class="card-img-top img-fluid" src="{{ $item->getPhoto() }}" alt="{{ $item->title }}" />
-                        </a>
-                        <div class="card-body">
-                            <a href="{{ route('course.details',$item->slug) }}">
+                            <div class="card-first-row" style="background-image: url('{{ $item->getPhoto() }}')"></div>
+                            <div class="card-body">
                                 <h4 class="card-title mt-0">
                                     {{ $item->title }}
                                 </h4>
-                                <p class="card-text">{{ Str::words($item->brief,10) }}</p>
+                                <p class="card-text text-muted">{{ Str::words($item->brief,10) }}</p>
                                 <p class="card-text">
                                     <small class="text-muted">{{ $item->created_at->diffForHumans() }}</small>
                                     <span class="badge badge-pill badge-soft-secondary fa-1x float-right">{{ $item->category->name }}</span>
                                 </p>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
