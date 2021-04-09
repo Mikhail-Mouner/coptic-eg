@@ -47,19 +47,19 @@
                 <div class="navbar-brand-box">
                     <a href="{{ route('home') }}" class="logo logo-dark">
                                     <span class="logo-sm">
-                                        <img src="{{ asset('back-end/images/logo-sm.png') }}" alt="" height="20">
+                                        <img src="{{ asset('back-end/images/logo-dark.png') }}" alt="" height="70">
                                     </span>
                         <span class="logo-lg">
-                                        <img src="{{ asset('back-end/images/logo-dark.png') }}" alt="" height="17">
+                                        <img src="{{ asset('back-end/images/logo-dark.png') }}" alt="" height="70">
                                     </span>
                     </a>
 
                     <a href="{{ route('home') }}" class="logo logo-light">
                                     <span class="logo-sm">
-                                        <img src="{{ asset('back-end/images/logo-sm.png') }}" alt="" height="20">
+                                        <img src="{{ asset('back-end/images/logo-dark.png') }}" alt="" height="70">
                                     </span>
                         <span class="logo-lg">
-                                        <img src="{{ asset('back-end/images/logo-light.png') }}" alt="" height="19">
+                                        <img src="{{ asset('back-end/images/logo-dark.png') }}" alt="" height="70">
                                     </span>
                     </a>
                 </div>

@@ -18,7 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('brief')->nullable();
-            $table->text('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('duration')->nullable();
             $table->string('location')->nullable();
             $table->string('main_photo')->default('courses/no-img.png');
