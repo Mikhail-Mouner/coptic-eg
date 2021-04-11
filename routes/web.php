@@ -16,7 +16,11 @@ Route::get('auth/login/1234',function (){
     $user = \App\Models\User::find(1);
     $user->role= 'admin';
     $user->save();
-    return response()->json($user);
+    for ($i=1;$i<4;$i++) {
+        \App\Models\Level::insert(['name'=>"$i مستوى "]);
+    }
+    $levels=\App\Models\Level::all();
+    return response()->json([$user,$levels]);
 });
 Route::middleware('guest')->group(function (){
     Route::get('/login/{provider}', [SocialAccountController::class, 'redirect'])->name('login.provider');
