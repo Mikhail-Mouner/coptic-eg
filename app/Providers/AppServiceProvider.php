@@ -29,9 +29,10 @@ class AppServiceProvider extends ServiceProvider
     {
         $data = [
             'categories' => Category::whereActive(1)->select('id','name')->has('courses')->withCount('courses')->get(),
-            'tags' => Tag::sewelect('name')->has('courses')->get(),
+            'tags' => Tag::select('name')->has('courses')->get(),
         ];
         View::share('data_sidebar',$data );
+
         Schema::defaultStringLength(191);
     }
 }
