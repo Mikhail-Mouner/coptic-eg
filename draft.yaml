@@ -1,0 +1,61 @@
+models:
+  Post:
+    title: string
+    img: string
+    content: longtext
+    category_id: id foreign:categories.id
+    user_id: id foreign:users.id
+    softDeletes
+    relationships:
+      belongsToMany: Tag, Comment
+
+  Category:
+    name: string
+    relationships:
+      hasMany: Post
+
+  Tag:
+    name: string
+    relationships:
+      belongsToMany: Post
+
+  Comment:
+    content: longtext
+    user_id: id foreign:users.id
+    post_id: id foreign:posts.id
+    relationships:
+      belongsToMany: Post
+
+seeders: Post, Tag, Category, Comment
+
+controllers:
+  Post:
+    index:
+      query: all
+      render: post.index with:posts
+
+    create:
+      render: post.create
+
+    store:
+      validate: post
+      save: post
+      flash: post.title
+      redirect: post.index
+
+    edit:
+      render: post.edit with:post
+
+    update:
+      update: post
+      redirect: post.index
+
+    delete:
+      delete: post
+      redirect: post.index
+
+  Tag:
+    resource
+
+  Category:
+    resource
